@@ -1,0 +1,850 @@
+/* =========================
+   GLOBAL SETTINGS
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+
+    transition:
+    transform .25s ease,
+    box-shadow .25s ease,
+    background .25s ease;
+}
+
+body{
+
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:20px;
+
+    background:
+    linear-gradient(135deg,#667eea,#764ba2);
+
+    background-size:200% 200%;
+
+    animation:bgMove 10s infinite alternate;
+}
+
+
+a{
+    text-decoration:none;
+}
+
+
+button{
+    cursor:pointer;
+}
+
+
+
+/* =========================
+   LOGIN / REGISTER PAGE
+========================= */
+
+.container{
+
+    width:min(400px,100%);
+
+    padding:42px 40px;
+
+
+    background:
+    rgba(255,255,255,.8);
+
+    backdrop-filter:blur(20px);
+
+
+    border-radius:28px;
+
+
+    box-shadow:
+    0 25px 60px rgba(0,0,0,.25);
+
+
+    animation:openApp .7s ease;
+
+}
+
+
+.container h2{
+
+    text-align:center;
+
+    font-size:34px;
+
+    margin-bottom:32px;
+
+}
+
+
+input{
+
+    width:100%;
+
+    padding:17px;
+
+    margin-bottom:15px;
+
+
+    border:none;
+
+    outline:none;
+
+
+    border-radius:16px;
+
+
+    font-size:16px;
+
+}
+
+
+input:focus{
+
+    transform:scale(1.02);
+
+}
+
+
+
+.container button{
+
+    width:100%;
+
+    padding:17px;
+
+
+    margin-top:10px;
+
+    margin-bottom:25px;
+
+
+    border:none;
+
+
+    border-radius:16px;
+
+
+    background:#111;
+
+    color:white;
+
+
+    font-size:17px;
+
+}
+
+
+.container button:hover{
+
+    transform:translateY(-4px);
+
+}
+
+
+.register-text,
+.container p{
+
+    text-align:center;
+
+    color:#555;
+
+}
+
+
+.error{
+
+    background:#ffe5e5;
+
+    color:#d10000;
+
+
+    padding:15px;
+
+
+    border-radius:15px;
+
+
+    text-align:center;
+
+
+    margin-bottom:20px;
+
+}
+
+
+
+/* =========================
+   DASHBOARD
+========================= */
+
+
+.dashboard{
+
+    width:min(600px,100%);
+
+
+    padding:40px;
+
+
+    background:
+    rgba(255,255,255,.75);
+
+
+    backdrop-filter:blur(20px);
+
+
+    border-radius:30px;
+
+
+    box-shadow:
+    0 25px 60px rgba(0,0,0,.25);
+
+
+    animation:openApp .7s ease;
+
+}
+
+
+
+/* HEADER */
+
+.top{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+
+    margin-bottom:35px;
+
+}
+
+
+.top h2{
+
+    font-size:28px;
+
+}
+
+
+.top p{
+
+    margin-top:8px;
+
+    color:#555;
+
+}
+
+
+
+/* PROGRESS */
+
+.progress-box{
+
+    width:180px;
+
+
+    padding:20px;
+
+
+    border-radius:22px;
+
+
+    background:
+    rgba(255,255,255,.5);
+
+}
+
+
+.progress{
+
+    height:8px;
+
+
+    background:#ddd;
+
+
+    border-radius:20px;
+
+
+    overflow:hidden;
+
+}
+
+
+.progress-fill{
+
+    height:100%;
+
+
+    background:
+    linear-gradient(
+        90deg,
+        #667eea,
+        #764ba2
+    );
+
+}
+
+
+
+/* ADD TASK */
+
+.task-form{
+
+    display:flex;
+
+
+    gap:12px;
+
+
+    margin-bottom:30px;
+
+}
+
+
+.task-form input{
+
+    flex:1;
+
+}
+
+
+.task-form button{
+
+    width:60px;
+
+
+    border:none;
+
+
+    border-radius:16px;
+
+
+    background:#111;
+
+
+    color:white;
+
+
+    font-size:26px;
+
+}
+
+
+.task-form button:hover{
+
+    transform:
+    rotate(90deg)
+    scale(1.05);
+
+}
+
+
+
+/* TASK LIST */
+
+.task-card{
+
+    display:flex;
+
+
+    justify-content:space-between;
+
+    align-items:center;
+
+
+    padding:18px 22px;
+
+
+    margin-bottom:15px;
+
+
+    border-radius:20px;
+
+
+    background:
+    rgba(255,255,255,.5);
+
+
+    animation:slideUp .5s ease;
+
+}
+
+
+.task-card:hover{
+
+    transform:translateY(-5px);
+
+}
+
+
+.task-card span{
+
+    font-size:18px;
+
+}
+
+
+.task-card a{
+
+    margin-left:12px;
+
+    font-size:20px;
+
+}
+
+
+
+/* LOGOUT */
+
+.logout-box{
+
+    text-align:center;
+
+
+    margin-top:30px;
+
+}
+
+
+.logout{
+
+    display:inline-block;
+
+
+    padding:12px 35px;
+
+
+    border-radius:25px;
+
+
+    background:#111;
+
+
+    color:white;
+
+}
+
+
+
+/* =========================
+   LANDING PAGE
+========================= */
+
+
+.landing-body{
+
+    background:
+    radial-gradient(
+        circle at top left,
+        #ffffff,
+        #eef2ff 45%,
+        #dbeafe
+    );
+
+}
+
+
+
+.hero{
+
+    min-height:100vh;
+
+
+    display:flex;
+
+
+    justify-content:center;
+
+    align-items:center;
+
+
+    gap:90px;
+
+
+    padding:50px;
+
+}
+
+
+.hero-content{
+
+    max-width:550px;
+
+    animation:leftIn 1s ease;
+
+}
+
+
+.hero-content h1{
+
+    font-size:65px;
+
+
+    line-height:1.1;
+
+
+    color:#050505;
+
+}
+
+
+.hero-content p{
+
+    margin-top:30px;
+
+
+    font-size:21px;
+
+
+    line-height:1.6;
+
+
+    color:#555;
+
+}
+
+
+
+/* LANDING BUTTONS */
+
+.buttons{
+
+    margin-top:40px;
+
+
+    display:flex;
+
+
+    gap:25px;
+
+}
+
+
+.buttons a{
+
+    width:150px;
+
+
+    padding:18px 0;
+
+
+    text-align:center;
+
+
+    border-radius:18px;
+
+
+    font-weight:bold;
+
+}
+
+
+.login-btn{
+
+    background:#2563eb;
+
+    color:white;
+
+}
+
+
+.register-btn{
+
+    background:white;
+
+
+    color:#2563eb;
+
+}
+
+
+
+/* FEATURES */
+
+.features{
+
+    display:flex;
+
+    flex-direction:column;
+
+
+    gap:28px;
+
+}
+
+
+.feature-card{
+
+    width:400px;
+
+
+    padding:32px;
+
+
+    border-radius:25px;
+
+
+    background:white;
+
+
+    box-shadow:
+    0 20px 50px rgba(0,0,0,.12);
+
+
+    animation:float 5s infinite;
+
+}
+
+
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+
+@keyframes openApp{
+
+from{
+
+    opacity:0;
+
+    transform:
+    scale(.95)
+    translateY(40px);
+
+}
+
+}
+
+
+@keyframes leftIn{
+
+from{
+
+    opacity:0;
+
+    transform:
+    translateX(-60px);
+
+}
+
+}
+
+
+@keyframes slideUp{
+
+from{
+
+    opacity:0;
+
+    transform:
+    translateY(20px);
+
+}
+
+}
+
+
+@keyframes float{
+
+50%{
+
+    transform:
+    translateY(-12px);
+
+}
+
+}
+
+
+@keyframes bgMove{
+
+from{
+
+    background-position:left;
+
+}
+
+to{
+
+    background-position:right;
+
+}
+
+}
+
+
+
+/* =========================
+   PHONE RESPONSIVE
+========================= */
+
+@media(max-width:700px){
+
+
+body{
+
+    padding:12px;
+
+}
+
+
+
+/* LOGIN */
+
+.container{
+
+    padding:35px 28px;
+
+}
+
+
+.container h2{
+
+    font-size:28px;
+
+}
+
+
+
+/* DASHBOARD */
+
+
+.dashboard{
+
+    padding:25px 22px;
+
+
+    border-radius:28px;
+
+}
+
+
+.top{
+
+    flex-direction:column;
+
+
+    align-items:flex-start;
+
+
+    gap:18px;
+
+}
+
+
+.top h2{
+
+    font-size:26px;
+
+}
+
+
+.progress-box{
+
+    width:100%;
+
+}
+
+
+.task-form input{
+
+    height:55px;
+
+}
+
+
+.task-form button{
+
+    height:55px;
+
+}
+
+
+.task-card{
+
+    padding:18px;
+
+}
+
+
+.task-card span{
+
+    font-size:18px;
+
+}
+
+
+
+/* LANDING */
+
+.hero{
+
+    flex-direction:column;
+
+
+    text-align:center;
+
+
+    gap:45px;
+
+
+    padding:40px 20px;
+
+}
+
+
+.hero-content h1{
+
+    font-size:38px;
+
+}
+
+
+.hero-content p{
+
+    font-size:17px;
+
+}
+
+
+.buttons{
+
+    justify-content:center;
+
+}
+
+
+.buttons a{
+
+    width:140px;
+
+}
+
+
+.features{
+
+    width:100%;
+
+}
+
+
+.feature-card{
+
+    width:100%;
+
+}
+
+}
